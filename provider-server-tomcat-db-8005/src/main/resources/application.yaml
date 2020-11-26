@@ -1,0 +1,40 @@
+server:
+  port: 8005
+
+spring:
+  application:
+    # service name
+    name: provider-payment-service
+  datasource:
+    type: org.apache.tomcat.jdbc.pool.DataSource
+    driver-class-name: org.gjt.mm.mysql.Driver
+    # MySQL credentials
+    url: jdbc:mysql://localhost:3306/db2020?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: username
+    password: password
+
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+  type-aliases-package: com.redlogo.cloud.entities
+
+eureka:
+  client:
+    # register to eureka
+    register-with-eureka: true
+    # if using multiple nodes, must be true for load balancing with Netflix Ribbon
+    fetch-registry: true
+    service-url:
+      # single node
+      # defaultZone: http://localhost:7001/eureka
+      # multiple nodes
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+
+  instance:
+    # name shown on Eureka dashboard
+    instance-id: provider-payment-8005
+    # display IP if hover on name in dashboard
+    prefer-ip-address: true
+    # heartbeat frequency to Eureka, default is 30 secs
+    lease-renewal-interval-in-seconds: 10
+    # TTL to Eureka, default is 90 secs
+    lease-expiration-duration-in-seconds: 20
