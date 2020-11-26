@@ -1,5 +1,5 @@
-# Microservice Architecture - Spring Cloud
-## A bunch of microservice templates built from Spring Cloud components and others.
+# Microservices Architecture - Spring Cloud
+## Microservices templates built from Spring Cloud and others.
 
 ## Author
 redlogo
