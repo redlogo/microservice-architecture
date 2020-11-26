@@ -23,6 +23,7 @@
         <module>consumer-feign-84</module>
         <module>consumer-feign-strategy-85</module>
         <module>provider-server-tomcat-pool-8005</module>
+        <module>provider-server-druid-pool-8006</module>
     </modules>
 
     <packaging>pom</packaging>
