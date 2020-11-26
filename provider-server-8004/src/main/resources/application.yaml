@@ -1,0 +1,28 @@
+server:
+  port: 8004
+
+spring:
+  application:
+    # service name
+    name: provider-payment-service-consul
+  cloud:
+    consul: # consul
+      port: 8500
+      host: localhost
+      discovery:
+        service-name: ${spring.application.name}
+        instance-id: provider-payment-8004
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: org.gjt.mm.mysql.Driver
+    # MySQL credentials
+    url: jdbc:mysql://localhost:3306/db2020?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: username
+    password: password
+    # optional
+    # druid:
+    #   validation-query: select 1
+
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+  type-aliases-package: com.redlogo.cloud.entities

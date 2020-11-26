@@ -1,0 +1,14 @@
+server:
+  port: 83
+
+spring:
+  application:
+    name: consumer-order-service-consul
+  cloud:
+    # consul
+    consul:
+      port: 8500
+      host: localhost
+      discovery:
+        service-name: ${spring.application.name}
+        instance-id: consumer-order-83

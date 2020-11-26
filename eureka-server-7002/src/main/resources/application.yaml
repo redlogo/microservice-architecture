@@ -1,0 +1,30 @@
+server:
+  port: 7002
+
+spring:
+  application:
+    name: eureka-service
+
+eureka:
+  instance:
+    # single node mode
+    # hostname: localhost
+    # multiple nodes mode
+    hostname: eureka7002.com
+    instance-id: eureka-server-7002
+  client:
+    # single node mode: no need to register to itself
+    # register-with-eureka: false
+    # fetch-registry: false
+    # multiple nodes mode
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      # single node mode
+      # defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      # multiple nodes mode
+      defaultZone: http://eureka7001.com:7001/eureka/
+  server:
+    # disable self protection, sacrifice AP
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 2000

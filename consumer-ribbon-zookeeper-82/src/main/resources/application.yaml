@@ -1,0 +1,12 @@
+server:
+  port: 82
+
+spring:
+  application:
+    name: consumer-order-service-zookeeper
+  cloud:
+    # zookeeper
+    zookeeper:
+      connect-string: localhost:2181
+      discovery:
+        instance-id: consumer-order-82

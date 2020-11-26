@@ -1,0 +1,15 @@
+# Project exclude paths
+/commons/target/
+/consumer-feign-84/target/
+/consumer-feign-strategy-85/target/
+/consumer-ribbon-80/target/
+/consumer-ribbon-consul-83/target/
+/consumer-ribbon-strategy-81/target/
+/consumer-ribbon-zookeeper-82/target/
+/eureka-server-7001/target/
+/eureka-server-7002/target/
+/provider-server-8001/target/
+/provider-server-8002/target/
+/provider-server-8004/target/
+/provider-server-zookeeper-8003/target/
+/service-discovery-9001/target/
