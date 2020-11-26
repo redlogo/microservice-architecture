@@ -15,8 +15,8 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 @SpringBootApplication
 // for eureka
 @EnableEurekaClient
-public class ProviderTomcatDb8005 {
+public class ProviderTomcatPool8005 {
     public static void main(String[] args) {
-        SpringApplication.run(ProviderTomcatDb8005.class, args);
+        SpringApplication.run(ProviderTomcatPool8005.class, args);
     }
 }
