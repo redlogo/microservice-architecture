@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>provider-server-8004</artifactId>
+    <artifactId>provider-server-consul-8004</artifactId>
 
     <dependencies>
         <!--  Spring Cloud  -->
