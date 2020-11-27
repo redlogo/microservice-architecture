@@ -24,6 +24,8 @@
         <module>consumer-feign-strategy-85</module>
         <module>provider-server-tomcat-pool-8005</module>
         <module>provider-server-druid-pool-8006</module>
+        <module>utilities</module>
+        <module>provider-server-hystrix-8007</module>
     </modules>
 
     <packaging>pom</packaging>

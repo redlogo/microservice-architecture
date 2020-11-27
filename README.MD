@@ -5,4 +5,4 @@
 redlogo
 
 ## Copyright
-Copyright © 2019 - 2020 redlogo
+Copyright © 2020 - 2021 redlogo
