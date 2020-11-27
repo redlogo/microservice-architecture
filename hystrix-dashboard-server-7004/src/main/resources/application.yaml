@@ -1,15 +1,16 @@
 server:
-  port: 9001
+  port: 7004
 
 spring:
   application:
     # service name
-    name: discovery-service
+    name: hystrix-dashboard-service
 
 eureka:
   client:
     # register to eureka
     register-with-eureka: true
+    # if using multiple nodes, must be true for load balancing with Netflix Ribbon
     fetch-registry: true
     service-url:
       # single node
@@ -19,7 +20,7 @@ eureka:
 
   instance:
     # name shown on Eureka dashboard
-    instance-id: service-discovery-9001
+    instance-id: hystrix-dashboard-7004
     # display IP if hover on name in dashboard
     prefer-ip-address: true
     # heartbeat frequency to Eureka, default is 30 secs

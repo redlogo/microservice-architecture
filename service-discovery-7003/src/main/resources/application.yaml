@@ -1,0 +1,28 @@
+server:
+  port: 7003
+
+spring:
+  application:
+    # service name
+    name: discovery-service
+
+eureka:
+  client:
+    # register to eureka
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      # single node
+      # defaultZone: http://localhost:7001/eureka
+      # multiple nodes
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+
+  instance:
+    # name shown on Eureka dashboard
+    instance-id: service-discovery-7003
+    # display IP if hover on name in dashboard
+    prefer-ip-address: true
+    # heartbeat frequency to Eureka, default is 30 secs
+    lease-renewal-interval-in-seconds: 10
+    # TTL to Eureka, default is 90 secs
+    lease-expiration-duration-in-seconds: 20
