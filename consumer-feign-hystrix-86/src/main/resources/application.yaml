@@ -1,0 +1,40 @@
+server:
+  port: 86
+
+spring:
+  application:
+    name: consumer-order-hystrix-service
+
+eureka:
+  client:
+    # register to eureka
+    register-with-eureka: true
+    # if multiple nodes, must be true for load balancing with ribbon
+    fetch-registry: true
+    service-url:
+      # single node
+      # defaultZone: http://localhost:7001/eureka
+      # multiple nodes
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+
+  instance:
+    # name on eureka
+    instance-id: consumer-order-feign-86
+    # display IP on path of eureka
+    prefer-ip-address: true
+
+feign:
+  client:
+    config:
+      default:
+        # feign time out customization
+        connectTimeout: 5000
+        readTimeout: 5000
+  # enable hystrix
+  hystrix:
+    enabled: true
+
+logging:
+  level:
+    # feign log
+    com.redlogo.springcloud.service.PaymentFeignService: debug

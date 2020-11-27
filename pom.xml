@@ -26,6 +26,7 @@
         <module>provider-server-druid-pool-8006</module>
         <module>utilities</module>
         <module>provider-server-hystrix-8007</module>
+        <module>consumer-feign-hystrix-86</module>
     </modules>
 
     <packaging>pom</packaging>

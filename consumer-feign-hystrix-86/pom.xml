@@ -9,10 +9,15 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>consumer-feign-84</artifactId>
+    <artifactId>consumer-feign-hystrix-86</artifactId>
 
     <dependencies>
         <!--  Spring Cloud  -->
+        <!--  Netflix Hystrix  -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+        </dependency>
         <!--  Spring Cloud Feign  -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

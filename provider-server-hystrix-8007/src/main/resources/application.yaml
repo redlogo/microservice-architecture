@@ -4,7 +4,7 @@ server:
 spring:
   application:
     # service name
-    name: provider-payment-service
+    name: provider-payment-hystrix-service
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: org.gjt.mm.mysql.Driver
