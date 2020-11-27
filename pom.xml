@@ -27,6 +27,7 @@
         <module>utilities</module>
         <module>provider-server-hystrix-8007</module>
         <module>consumer-feign-hystrix-86</module>
+        <module>consumer-feign-fallback-hystrix-88</module>
     </modules>
 
     <packaging>pom</packaging>

@@ -8,7 +8,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 /**
  * Consumer using default Netflix Ribbon (round Robin).
  * Use Feign (on top of Eureka).
- * Use Hystrix.
+ * Use Feign fallback (provided by Hystrix).
  *
  * @author redlogo
  * @version 0.1
@@ -18,8 +18,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableFeignClients
 // For Hystrix
 @EnableHystrix
-public class ConsumerFeignHystrix86 {
+public class ConsumerFeignFallbackHystrix88 {
     public static void main(String[] args) {
-        SpringApplication.run(ConsumerFeignHystrix86.class, args);
+        SpringApplication.run(ConsumerFeignFallbackHystrix88.class, args);
     }
 }
