@@ -30,6 +30,7 @@
         <module>consumer-feign-fallback-hystrix-88</module>
         <module>provider-server-springdata-jpa-8008</module>
         <module>hystrix-dashboard-server-7004</module>
+        <module>gateway-server-7005</module>
     </modules>
 
     <packaging>pom</packaging>

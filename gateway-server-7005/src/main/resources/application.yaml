@@ -1,0 +1,67 @@
+server:
+  port: 7005
+
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    gateway:
+      # enable discovery services, use with method 2: use service name
+      discovery:
+        locator:
+          enabled: true
+      # multiple routes
+      routes:
+        # tested by: curl "http://localhost:7005/payment/get/1?uname=123" --cookie "username=un" -H "X-Request-Id:123"
+        # route id, any name, but cannot duplicate
+        - id: payment-route
+          # method 1: specify address
+          # uri: http://localhost:8001
+          # method 2: use service name
+          uri: lb://provider-payment-service
+          # predicate factory
+          predicates:
+            # match these paths
+            - Path=/payment/get/**
+            # RoutePredicateFactory [After]
+            - After=2020-10-27T16:46:32.743-08:00[America/Los_Angeles]
+            # use Cookie, key-value
+            - Cookie=username, un
+            # use Header, regexp support
+            - Header=X-Request-Id, \d+
+          # filter factory
+          # filter:
+          #   - AddRequestHeader=X-Request-red, blue
+
+        # tested by: http://localhost:7005/payment/timeout?uname=123&username=123
+        - id: payment-route2
+          # method 1: specify address
+          # uri: http://localhost:8001
+          # method 2: use service name
+          uri: lb://provider-payment-service
+          predicates:
+            - Path=/payment/timeout/**
+            # query in url
+            - Query=username, \d+
+
+eureka:
+  client:
+    # register to eureka
+    register-with-eureka: true
+    # if using multiple nodes, must be true for load balancing with Netflix Ribbon
+    fetch-registry: true
+    service-url:
+      # single node
+      # defaultZone: http://localhost:7001/eureka
+      # multiple nodes
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+
+  instance:
+    # name shown on Eureka dashboard
+    instance-id: gateway-7005
+    # display IP if hover on name in dashboard
+    prefer-ip-address: true
+    # heartbeat frequency to Eureka, default is 30 secs
+    lease-renewal-interval-in-seconds: 10
+    # TTL to Eureka, default is 90 secs
+    lease-expiration-duration-in-seconds: 20
