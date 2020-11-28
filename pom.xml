@@ -31,6 +31,8 @@
         <module>provider-server-springdata-jpa-8008</module>
         <module>hystrix-dashboard-server-7004</module>
         <module>gateway-server-7005</module>
+        <module>config-server-7006</module>
+        <module>config-client-89</module>
     </modules>
 
     <packaging>pom</packaging>
