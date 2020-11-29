@@ -43,6 +43,8 @@
         <module>consumer-sleuth-94</module>
         <module>config-bus-kafka-server-7008</module>
         <module>config-bus-kafka-client-96</module>
+        <module>provider-server-stream-kafka-8011</module>
+        <module>consumer-stream-kafka-97</module>
     </modules>
 
     <packaging>pom</packaging>

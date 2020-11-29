@@ -1,0 +1,55 @@
+server:
+  port: 97
+
+spring:
+  application:
+    # service name
+    name: consumer-stream-service
+  cloud:
+    # Spring Cloud Stream
+    stream:
+      binders:
+        # binder name
+        myKafkaBinder:
+          # binder MQ type
+          type: kafka
+          environment:
+            spring:
+              # Kafka config
+              cloud:
+                stream:
+                  kafka:
+                    binder:
+                      brokers: http://localhost:9092
+      bindings:
+        # consumer of the message, use input
+        input:
+          # Kafka Topic name
+          destination: studyTopic
+          content-type: application/json
+          # link to binder
+          binder: myKafkaBinder
+          # with group specified, enable message persistence
+          group: myKafkaGroup
+
+eureka:
+  client:
+    # register to eureka
+    register-with-eureka: true
+    # if using multiple nodes, must be true for load balancing with Netflix Ribbon
+    fetch-registry: true
+    service-url:
+      # single node
+      # defaultZone: http://localhost:7001/eureka
+      # multiple nodes
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+
+  instance:
+    # name shown on Eureka dashboard
+    instance-id: consumer-stream-97
+    # display IP if hover on name in dashboard
+    prefer-ip-address: true
+    # heartbeat frequency to Eureka, default is 30 secs
+    lease-renewal-interval-in-seconds: 10
+    # TTL to Eureka, default is 90 secs
+    lease-expiration-duration-in-seconds: 20
