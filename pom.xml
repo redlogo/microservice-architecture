@@ -39,6 +39,8 @@
         <module>provider-server-stream-rabbitmq-8009</module>
         <module>consumer-stream-rabbitmq-92</module>
         <module>consumer-stream-rabbitmq-93</module>
+        <module>provider-server-sleuth-8010</module>
+        <module>consumer-sleuth-94</module>
     </modules>
 
     <packaging>pom</packaging>
