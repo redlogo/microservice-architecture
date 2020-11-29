@@ -41,6 +41,8 @@
         <module>consumer-stream-rabbitmq-93</module>
         <module>provider-server-sleuth-8010</module>
         <module>consumer-sleuth-94</module>
+        <module>config-bus-kafka-server-7008</module>
+        <module>config-bus-kafka-client-96</module>
     </modules>
 
     <packaging>pom</packaging>

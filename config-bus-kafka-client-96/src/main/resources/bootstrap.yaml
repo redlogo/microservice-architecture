@@ -1,0 +1,49 @@
+# system level configurations, priority higher than application.yml
+server:
+  port: 96
+
+spring:
+  application:
+    name: config-client-bus-kafka-service
+  cloud:
+    config:
+      # format: http://config-7006.com:7006/master/config-test.yml
+      # branch name
+      label: master
+      # config file name
+      name: config
+      # profile name
+      profile: dev
+      # config server name
+      uri: http://localhost:7008
+  # kafka server
+  kafka:
+    bootstrap-servers: http://localhost:9092
+
+# actuator exposure, expose everything
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+eureka:
+  client:
+    # register to eureka
+    register-with-eureka: true
+    # if using multiple nodes, must be true for load balancing with Netflix Ribbon
+    fetch-registry: true
+    service-url:
+      # single node
+      # defaultZone: http://localhost:7001/eureka
+      # multiple nodes
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+  instance:
+    # name shown on Eureka dashboard
+    instance-id: config-client-bus-kafka-96
+    # display IP if hover on name in dashboard
+    prefer-ip-address: true
+    # heartbeat frequency to Eureka, default is 30 secs
+    lease-renewal-interval-in-seconds: 10
+    # TTL to Eureka, default is 90 secs
+    lease-expiration-duration-in-seconds: 20
