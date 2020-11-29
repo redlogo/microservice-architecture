@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.config.server.EnableConfigServer;
 
 /**
- * Spring Cloud Config.
+ * Spring Cloud Config server side.
  * Accessed by http://config-7006.com:7006/master/config-test.yml format: /{label}/{application}-{profile}.yml
  *
  * @author redlogo
@@ -14,8 +14,8 @@ import org.springframework.cloud.config.server.EnableConfigServer;
 @SpringBootApplication
 // enable Spring Cloud Config server
 @EnableConfigServer
-public class Config7006 {
+public class ConfigServer7006 {
     public static void main(String[] args) {
-        SpringApplication.run(Config7006.class, args);
+        SpringApplication.run(ConfigServer7006.class, args);
     }
 }

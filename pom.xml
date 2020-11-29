@@ -33,6 +33,9 @@
         <module>gateway-server-7005</module>
         <module>config-server-7006</module>
         <module>config-client-89</module>
+        <module>config-bus-rabbitmq-server-7007</module>
+        <module>config-bus-rabbitmq-client-90</module>
+        <module>config-bus-rabbitmq-client-91</module>
     </modules>
 
     <packaging>pom</packaging>

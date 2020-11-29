@@ -6,8 +6,9 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 /**
  * Spring Cloud Config client side.
- * Can accept dynamic post changes: curl -X POST "http://localhost:89/actuator/refresh" which is done by DevOps.
- * For better notification methodology, use Spring Cloud Bus with Config.
+ * Working with Spring Cloud Bus RabbitMQ.
+ * With Spring Cloud Bus RabbitMQ, refresh all client by: curl -X POST "http://localhost:7007/actuator/bus-refresh"
+ * Or with target: curl -X POST "http://localhost:7007/actuator/bus-refresh/config-client-bus-rabbitmq-service:90"
  *
  * Config server side must be on, then turn on Config client side.
  *
@@ -16,8 +17,8 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
  */
 @SpringBootApplication
 @EnableEurekaClient
-public class ConfigClient89 {
+public class ConfigClientBusRabbitMQ91 {
     public static void main(String[] args) {
-        SpringApplication.run(ConfigClient89.class, args);
+        SpringApplication.run(ConfigClientBusRabbitMQ91.class, args);
     }
 }

@@ -1,0 +1,50 @@
+server:
+  port: 7007
+
+spring:
+  application:
+    name: config-server-bus-rabbitmq-service
+  cloud:
+    config:
+      server:
+        git:
+          # centralized configuration location
+          uri: https://github.com/redlogo/springcloud-config.git
+          search-paths:
+            - springcloud-config
+      # branch
+      label: master
+  # rabbit mq server
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+# expose actuator for Spring Bus bus-refresh function
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'bus-refresh'
+
+eureka:
+  client:
+    # register to eureka
+    register-with-eureka: true
+    # if using multiple nodes, must be true for load balancing with Netflix Ribbon
+    fetch-registry: true
+    service-url:
+      # single node
+      # defaultZone: http://localhost:7001/eureka
+      # multiple nodes
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+  instance:
+    # name shown on Eureka dashboard
+    instance-id: config-server-bus-rabbitmq-7007
+    # display IP if hover on name in dashboard
+    prefer-ip-address: true
+    # heartbeat frequency to Eureka, default is 30 secs
+    lease-renewal-interval-in-seconds: 10
+    # TTL to Eureka, default is 90 secs
+    lease-expiration-duration-in-seconds: 20

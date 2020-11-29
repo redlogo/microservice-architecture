@@ -1,0 +1,52 @@
+# system level configurations, priority higher than application.yml
+server:
+  port: 91
+
+spring:
+  application:
+    name: config-client-bus-rabbitmq-service
+  cloud:
+    config:
+      # format: http://config-7006.com:7006/master/config-test.yml
+      # branch name
+      label: master
+      # config file name
+      name: config
+      # profile name
+      profile: dev
+      # config server name
+      uri: http://localhost:7007
+  # rabbit mq server
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+# actuator exposure, expose everything
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+eureka:
+  client:
+    # register to eureka
+    register-with-eureka: true
+    # if using multiple nodes, must be true for load balancing with Netflix Ribbon
+    fetch-registry: true
+    service-url:
+      # single node
+      # defaultZone: http://localhost:7001/eureka
+      # multiple nodes
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+  instance:
+    # name shown on Eureka dashboard
+    instance-id: config-client-bus-rabbitmq-91
+    # display IP if hover on name in dashboard
+    prefer-ip-address: true
+    # heartbeat frequency to Eureka, default is 30 secs
+    lease-renewal-interval-in-seconds: 10
+    # TTL to Eureka, default is 90 secs
+    lease-expiration-duration-in-seconds: 20
