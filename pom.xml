@@ -36,6 +36,9 @@
         <module>config-bus-rabbitmq-server-7007</module>
         <module>config-bus-rabbitmq-client-90</module>
         <module>config-bus-rabbitmq-client-91</module>
+        <module>provider-server-stream-rabbitmq-8009</module>
+        <module>consumer-stream-rabbitmq-92</module>
+        <module>consumer-stream-rabbitmq-93</module>
     </modules>
 
     <packaging>pom</packaging>

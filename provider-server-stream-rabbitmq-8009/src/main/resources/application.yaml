@@ -1,0 +1,53 @@
+server:
+  port: 8009
+
+spring:
+  application:
+    # service name
+    name: provider-stream-service
+  cloud:
+    # Spring Cloud Stream
+    stream:
+      binders:
+        # binder name
+        myRabbitMQBinder:
+          # binder MQ type
+          type: rabbit
+          environment:
+            spring:
+              # rabbitMQ config
+              rabbitmq:
+                host: localhost
+                port: 5672
+                username: guest
+                password: guest
+      bindings:
+        # producer of the message, use output
+        output:
+          # RabbitMQ Exchange name, corresponding to Kafka Topics
+          destination: studyExchange
+          content-type: application/json
+          # link to binder
+          binder: myRabbitMQBinder
+
+eureka:
+  client:
+    # register to eureka
+    register-with-eureka: true
+    # if using multiple nodes, must be true for load balancing with Netflix Ribbon
+    fetch-registry: true
+    service-url:
+      # single node
+      # defaultZone: http://localhost:7001/eureka
+      # multiple nodes
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+
+  instance:
+    # name shown on Eureka dashboard
+    instance-id: provider-stream-8009
+    # display IP if hover on name in dashboard
+    prefer-ip-address: true
+    # heartbeat frequency to Eureka, default is 30 secs
+    lease-renewal-interval-in-seconds: 10
+    # TTL to Eureka, default is 90 secs
+    lease-expiration-duration-in-seconds: 20
