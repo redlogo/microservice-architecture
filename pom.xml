@@ -45,6 +45,7 @@
         <module>config-bus-kafka-client-96</module>
         <module>provider-server-stream-kafka-8011</module>
         <module>consumer-stream-kafka-97</module>
+        <module>provider-server-springdata-redis-8012</module>
     </modules>
 
     <packaging>pom</packaging>
